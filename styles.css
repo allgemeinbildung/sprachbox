@@ -1,20 +1,20 @@
 /* File: allgemeinbildung-textbox/styles.css */
 /* Grundlegende Stile */
 :root {
-    --background-color: #ffffff; /* Weißer Hintergrund */
-    --text-color: #000000;       /* Schwarzer Text */
+    --background-color: #ffffff; 
+    --text-color: #000000;       
     --editor-background: #ffffff;
     --border-color: #cccccc;
     --button-text-color: #ffffff;
-    --button-copy-bg: #4CAF50;   /* Grün */
+    --button-copy-bg: #4CAF50;   
     --button-copy-text: #ffffff;
-    --bulk-delete-bg: #d32f2f;   /* Dunkleres Rot */
+    --bulk-delete-bg: #d32f2f;   
     --bulk-delete-text: #ffffff;
-    --bulk-delete-hover-bg: #e53935; /* Dunkleres Rot beim Hover */
+    --bulk-delete-hover-bg: #e53935; 
     --text-secondary-color: #555555;
-    --button-print-all-bg: #4CAF50; /* Grün für den neuen Button */
-    --button-print-all-hover-bg: #45a049; /* Dunkleres Grün beim Hover */
-    --steps-emphasis-color: #0044AA; /* Custom color for bold/italic in steps */
+    --button-print-all-bg: #4CAF50; 
+    --button-print-all-hover-bg: #45a049; 
+    --steps-emphasis-color: #0044AA; 
 }
 
 body {
@@ -27,7 +27,7 @@ body {
 }
 
 .quill-editor {
-    height: 250px; /* Angepasst für ca. 20 Zeilen */
+    height: 250px; 
     margin-bottom: 10px;
     background-color: var(--editor-background);
     border: 1px solid var(--border-color);
@@ -42,8 +42,8 @@ body {
 }
 
 button {
-    padding: 8px 16px; /* Größere Abmessungen für bessere Sichtbarkeit */
-    font-size: 14px;   /* Größere Schriftgröße */
+    padding: 8px 16px; 
+    font-size: 14px;   
     cursor: pointer;
     color: var(--button-text-color);
     border: none;
@@ -58,51 +58,51 @@ button:hover {
 
 /* Spezifische Button-Stile */
 #reloadBtn {
-    background-color: #003f5c; /* Dunkelblau */
+    background-color: #003f5c; 
 }
 #reloadBtn:hover {
-    background-color: #2f4b7c; /* Mittelblau beim Hover */
+    background-color: #2f4b7c; 
 }
 
 #downloadAllBtn {
-    background-color: #555555; /* Dunkelgrau */
+    background-color: #555555; 
 }
 #downloadAllBtn:hover {
-    background-color: #777777; /* Helleres Grau beim Hover */
+    background-color: #777777; 
 }
 
 #clearAllBtn {
-    background-color: #d62728; /* Dunkelrot */
+    background-color: #d62728; 
 }
 #clearAllBtn:hover {
-    background-color: #ff6347; /* Helleres Rot beim Hover */
+    background-color: #ff6347; 
 }
 
 #clearBtn {
-    background-color: #f44336; /* Rot */
+    background-color: #f44336; 
 }
 #clearBtn:hover {
-    background-color: #ff7961; /* Helleres Rot beim Hover */
+    background-color: #ff7961; 
 }
 
 #copyAnswerBtn {
-    background-color: var(--button-copy-bg); /* Grün */
-    color: var(--button-copy-text); /* Weißer Text */
+    background-color: var(--button-copy-bg); 
+    color: var(--button-copy-text); 
 }
 #copyAnswerBtn:hover {
-    background-color: #66BB6A; /* Dunkleres Grün beim Hover */
+    background-color: #66BB6A; 
 }
 
 .exportTxtBtn {
-    background-color: var(--button-copy-bg); /* Grün */
-    color: var(--button-copy-text); /* Weißer Text */
+    background-color: var(--button-copy-bg); 
+    color: var(--button-copy-text); 
 }
 .exportTxtBtn:hover {
-    background-color: #66BB6A; /* Dunkleres Grün beim Hover */
+    background-color: #66BB6A; 
 }
 
 .deleteAnswerBtn {
-    background-color: #f44336; /* Rot */
+    background-color: #f44336; 
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -110,11 +110,11 @@ button:hover {
     transition: background-color 0.3s;
 }
 .deleteAnswerBtn:hover {
-    background-color: #d32f2f; /* Dunkleres Rot beim Hover */
+    background-color: #d32f2f; 
 }
 
 .printAnswerBtn {
-    background-color: #2196F3; /* Blau */
+    background-color: #2196F3; 
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -122,7 +122,7 @@ button:hover {
     transition: background-color 0.3s;
 }
 .printAnswerBtn:hover {
-    background-color: #1E88E5; /* Dunkleres Blau beim Hover */
+    background-color: #1E88E5; 
 }
 
 #printAllBtn {
@@ -152,11 +152,11 @@ button:hover {
 }
 
 #printAllSubIdsBtn {
-    background-color: #673AB7; /* Purple */
+    background-color: #673AB7; 
     color: white;
 }
 #printAllSubIdsBtn:hover {
-    background-color: #5E35B1; /* Darker purple on hover */
+    background-color: #5E35B1; 
 }
 
 #savedAnswerContainer {
@@ -278,10 +278,9 @@ button:hover {
     body.print-all #printAllContent * {
         white-space: pre-wrap;
     }
-    /* Ensure colored bold/italic in steps for printSingleAnswer */
     .steps-print div strong,
     .steps-print div em {
-        color: var(--steps-emphasis-color) !important; /* !important to ensure it overrides other print styles if needed */
+        color: var(--steps-emphasis-color) !important; 
     }
 }
 
@@ -317,18 +316,15 @@ summary::after {
     transition: opacity 0.5s;
 }
 
-/* Renamed from .questions-container */
 .steps-container {
     margin-bottom: 15px;
-    font-style: italic; /* Makes the whole block of steps italic */
+    /* font-style: italic; MODIFIED: Removed */
 }
 
-/* Renamed from .questions-container div */
 .steps-container div {
     margin-bottom: 5px;
 }
 
-/* New style for bold/italic words within steps on the main page */
 .steps-container div strong,
 .steps-container div em {
     color: var(--steps-emphasis-color);
