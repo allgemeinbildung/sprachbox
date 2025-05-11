@@ -142,11 +142,11 @@
         if (Object.keys(steps).length > 0) {
             const stepsElement = document.createElement('div');
             stepsElement.className = 'steps-print'; // Renamed class
-            let stepsHtml = ''; // Removed <em> wrapper
+            let stepsHtml = '<em>';
             Object.values(steps).forEach(step => { // Iterate over steps
                 stepsHtml += `<div>- ${parseMarkdown(step)}</div>`; // Use step variable
             });
-            // Removed </em>
+            stepsHtml += '</em>';
             stepsElement.innerHTML = stepsHtml;
             printDiv.appendChild(stepsElement);
         }
@@ -196,17 +196,22 @@
                     hr { border: 0; border-top: 1px solid #ccc; margin: 20px 0; }
                     .steps-print { /* Renamed from .questions-print */
                         margin-bottom: 15px;
-                        /* font-style: italic; <-- REMOVED */
+                        font-style: italic;
                         color: #333; 
                     }
                     .steps-print div { /* Renamed from .questions-print div */
                         margin-bottom: 5px;
                     }
+                    /* Added style for bold/italic within steps */
+                    .steps-print div strong,
+                    .steps-print div em {
+                        color: #0044AA; /* Custom color for bold/italic words */
+                    }
                     ul, ol { margin-left: 20px; padding-left: 20px; }
                     li { margin-bottom: 5px; }
                     p { margin-bottom: 10px; line-height: 1.4; }
-                    strong { font-weight: bold; }
-                    em { font-style: italic; } /* Standard em style for markdown italics */
+                    strong { font-weight: bold; } /* Default strong if not overridden by more specific selector */
+                    em { font-style: italic; } /* Default em if not overridden */
                     h2 { page-break-before: always; } 
                     h3 { page-break-after: avoid; } 
                     .sub-assignment-block { page-break-inside: avoid; } 
@@ -246,11 +251,11 @@
         const steps = getStepsFromStorage(assignmentId, subId); // Using renamed function and variable
 
         if (Object.keys(steps).length > 0) {
-            let html = '<div class="steps-print">'; // Removed <em> wrapper
+            let html = '<div class="steps-print"><em>'; // Renamed class
             Object.values(steps).forEach(step => { // Iterate over steps
                 html += `<div>- ${parseMarkdown(step)}</div>`; // Use step variable
             });
-            html += '</div>'; // Removed </em>
+            html += '</em></div>';
             return html;
         }
         return '';
@@ -311,11 +316,11 @@
             let html = `<h4>Textsorte: ${subId}</h4>`; // Changed "Thema" to "Textsorte"
 
             if (Object.keys(steps).length > 0) {
-                html += '<div class="steps-container">'; // Renamed class, removed <em>
+                html += '<div class="steps-container"><em>'; // Renamed class
                 Object.values(steps).forEach(step => { // Iterate over steps
                     html += `<div>- ${parseMarkdown(step)}</div>`; // Use step variable
                 });
-                html += '</div>'; // Removed </em>
+                html += '</em></div>';
             }
             subIdInfoElement.innerHTML = html;
             subIdInfoElement.style.display = 'block';
