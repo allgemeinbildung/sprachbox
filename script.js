@@ -142,11 +142,11 @@
         if (Object.keys(steps).length > 0) {
             const stepsElement = document.createElement('div');
             stepsElement.className = 'steps-print'; // Renamed class
-            let stepsHtml = '<em>';
+            let stepsHtml = ''; // Removed <em> wrapper
             Object.values(steps).forEach(step => { // Iterate over steps
                 stepsHtml += `<div>- ${parseMarkdown(step)}</div>`; // Use step variable
             });
-            stepsHtml += '</em>';
+            // Removed </em>
             stepsElement.innerHTML = stepsHtml;
             printDiv.appendChild(stepsElement);
         }
@@ -196,7 +196,7 @@
                     hr { border: 0; border-top: 1px solid #ccc; margin: 20px 0; }
                     .steps-print { /* Renamed from .questions-print */
                         margin-bottom: 15px;
-                        font-style: italic;
+                        /* font-style: italic; <-- REMOVED */
                         color: #333; 
                     }
                     .steps-print div { /* Renamed from .questions-print div */
@@ -206,7 +206,7 @@
                     li { margin-bottom: 5px; }
                     p { margin-bottom: 10px; line-height: 1.4; }
                     strong { font-weight: bold; }
-                    em { font-style: italic; }
+                    em { font-style: italic; } /* Standard em style for markdown italics */
                     h2 { page-break-before: always; } 
                     h3 { page-break-after: avoid; } 
                     .sub-assignment-block { page-break-inside: avoid; } 
@@ -246,11 +246,11 @@
         const steps = getStepsFromStorage(assignmentId, subId); // Using renamed function and variable
 
         if (Object.keys(steps).length > 0) {
-            let html = '<div class="steps-print"><em>'; // Renamed class
+            let html = '<div class="steps-print">'; // Removed <em> wrapper
             Object.values(steps).forEach(step => { // Iterate over steps
                 html += `<div>- ${parseMarkdown(step)}</div>`; // Use step variable
             });
-            html += '</em></div>';
+            html += '</div>'; // Removed </em>
             return html;
         }
         return '';
@@ -311,11 +311,11 @@
             let html = `<h4>Textsorte: ${subId}</h4>`; // Changed "Thema" to "Textsorte"
 
             if (Object.keys(steps).length > 0) {
-                html += '<div class="steps-container"><em>'; // Renamed class
+                html += '<div class="steps-container">'; // Renamed class, removed <em>
                 Object.values(steps).forEach(step => { // Iterate over steps
                     html += `<div>- ${parseMarkdown(step)}</div>`; // Use step variable
                 });
-                html += '</em></div>';
+                html += '</div>'; // Removed </em>
             }
             subIdInfoElement.innerHTML = html;
             subIdInfoElement.style.display = 'block';
