@@ -14,6 +14,7 @@
     --text-secondary-color: #555555;
     --button-print-all-bg: #4CAF50; /* Grün für den neuen Button */
     --button-print-all-hover-bg: #45a049; /* Dunkleres Grün beim Hover */
+    --steps-emphasis-color: #0044AA; /* Custom color for bold/italic in steps */
 }
 
 body {
@@ -277,6 +278,11 @@ button:hover {
     body.print-all #printAllContent * {
         white-space: pre-wrap;
     }
+    /* Ensure colored bold/italic in steps for printSingleAnswer */
+    .steps-print div strong,
+    .steps-print div em {
+        color: var(--steps-emphasis-color) !important; /* !important to ensure it overrides other print styles if needed */
+    }
 }
 
 details {
@@ -314,11 +320,18 @@ summary::after {
 /* Renamed from .questions-container */
 .steps-container {
     margin-bottom: 15px;
+    font-style: italic; /* Makes the whole block of steps italic */
 }
 
 /* Renamed from .questions-container div */
 .steps-container div {
     margin-bottom: 5px;
+}
+
+/* New style for bold/italic words within steps on the main page */
+.steps-container div strong,
+.steps-container div em {
+    color: var(--steps-emphasis-color);
 }
 
 .sub-id-info {
